@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="university.lieu_list">
+      <field name="name">Lieu list</field>
+      <field name="model">lieu</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="lib"/>
+          <field name="adresse"/>
+        </tree>
+      </field>
+    </record>
+
+     <record model="ir.ui.view" id="university.lieu_form">
+       <field name="name">Lieu list</field>
+       <field name="model">lieu</field>
+       <field name="arch" type="xml">
+          <form>
+            <sheet>
+                <group>
+                   <field name="lib"/>
+                   <field name="adresse"/>
+                </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="university.action_lieu">
+      <field name="name">Lieux</field>
+      <field name="res_model">lieu</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Lieux" id="university.lieux"  parent="university.menu_root" action="university.action_lieu"/>
+
+  </data>
+</odoo>

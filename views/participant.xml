@@ -1,0 +1,49 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="university.participant_list">
+      <field name="name">participants list</field>
+      <field name="model">participant</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nom"/>
+          <field name="prenom"/>
+          <field name="cin"/>
+          <field name="phone"/>
+          <field name="mail"/>
+          <field name="event_id"/>
+        </tree>
+      </field>
+    </record>
+
+     <record model="ir.ui.view" id="university.participant_form">
+       <field name="name">student list</field>
+       <field name="model">participant</field>
+       <field name="arch" type="xml">
+          <form>
+            <sheet>
+                <group>
+                  <field name="nom"/>
+                  <field name="prenom"/>
+                  <field name="cin"/>
+                  <field name="phone"/>
+                  <field name="mail"/>
+                  <field name="event_id" widget="many2many_tags"/>
+                </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="university.action_window2">
+      <field name="name">Participants</field>
+      <field name="res_model">participant</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Participants" id="university.participants"  parent="university.menu_root" action="university.action_window2"/>
+
+  </data>
+</odoo>

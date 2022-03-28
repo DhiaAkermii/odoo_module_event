@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="university.type_list">
+      <field name="name">type list</field>
+      <field name="model">type</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="lib"/>
+            <field name="description"/>
+        </tree>
+      </field>
+    </record>
+     <record model="ir.ui.view" id="university.type_form">
+       <field name="name">student list</field>
+       <field name="model">type</field>
+       <field name="arch" type="xml">
+          <form>
+            <sheet>
+                <group>
+                    <field name="lib"/>
+                    <field name="description"/>
+                </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="university.action_type">
+      <field name="name">types</field>
+      <field name="res_model">type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Types" id="university.types"  parent="university.menu_root" action="university.action_type"/>
+
+  </data>
+</odoo>

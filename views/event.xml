@@ -1,0 +1,53 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="university.list">
+      <field name="name">student list</field>
+      <field name="model">university.student</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="titre"/>
+            <field name="date"/>
+            <field name="duree"/>
+            <field name="fraisInscrit"/>
+            <field name="nombreParticipants"/>
+            <field name="lieu_id"/>
+            <field name="certificate" widget="radio"/>
+            <field name="type_id"/>
+            <field name="participants_ids"/>
+        </tree>
+      </field>
+    </record>
+
+     <record model="ir.ui.view" id="university.form">
+      <field name="name">student list</field>
+      <field name="model">university.student</field>
+      <field name="arch" type="xml">
+          <form>
+            <sheet>
+                <group>
+                    <field name="titre"/>
+                    <field name="date"/>
+                    <field name="duree"/>
+                    <field name="fraisInscrit"/>
+                    <field name="nombreParticipants"/>
+                    <field name="lieu_id"/>
+                    <field name="certificate" widget="radio"/>
+                    <field name="type_id"/>
+                    <field name="participants_ids"/>
+                </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="university.action_window">
+      <field name="name">events</field>
+      <field name="res_model">university.student</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Top menu item -->
+    <menuitem name="ISI Events" id="university.menu_root" />
+    <menuitem name="Events" id="university.events"  parent="university.menu_root" action="university.action_window"/>
+  </data>
+</odoo>
